@@ -1,20 +1,14 @@
 [
     {
         "name": "Doll-",
-        "price": 614,
-        "inStock": true,
-        "id": "Ni71P"
-    },
-    {
-        "name": "Doll-",
-        "price": 45,
+        "price": 454,
         "inStock": true,
         "id": "4wPRv"
     },
     {
         "name": "Doll-",
-        "price": 56,
+        "price": 301,
         "inStock": true,
-        "id": "yhsXp"
+        "id": "pSKqM"
     }
 ]
