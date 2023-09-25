@@ -1,14 +1,22 @@
 [
     {
-        "name": "Doll-",
-        "price": 454,
+        "name": "Doll",
+        "price": 5656,
         "inStock": true,
-        "id": "4wPRv"
+        "labels": [
+            "Box Game",
+            "Art"
+        ],
+        "id": "DvBbm"
     },
     {
-        "name": "Doll-",
-        "price": 301,
+        "name": "Doll",
+        "price": 1769,
         "inStock": true,
-        "id": "pSKqM"
+        "labels": [
+            "Box Game",
+            "Art"
+        ],
+        "id": "wGZ01"
     }
 ]

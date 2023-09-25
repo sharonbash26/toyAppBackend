@@ -9,13 +9,41 @@ export const toyService = {
     remove,
     save
 }
-
-function query(filterBy = {}) {
+    
+function query(filterBy = {},sort) {
     let toysToDisplay = toys
-    if (filterBy.name) {
+    // let   toysToDisplay=[]   
+    const {maxPrice, minPrice, name, labels} = filterBy || {}
+    const {by,asc} = sort || {}
+    if (name) {
         const regExp = new RegExp(filterBy.name, 'i')
         toysToDisplay = toysToDisplay.filter(toy => regExp.test(toy.name))
     }
+
+    if (filterBy.labels && filterBy.labels[0]) {
+        console.log('toyToDisplay',toysToDisplay)
+          toysToDisplay =   toysToDisplay.filter(toy => toy.labels.some(label => filterBy.labels.includes(label)))
+    }
+
+    if (filterBy.inStock) { 
+          toysToDisplay =   toysToDisplay.filter(toy => toy.inStock === JSON.parse(filterBy.inStock))
+    }
+
+    if (maxPrice && minPrice) {
+    filterBy.maxPrice = (+filterBy.maxPrice) ? +filterBy.maxPrice : Infinity
+    filterBy.minPrice = (+filterBy.minPrice) ? +filterBy.minPrice : -Infinity
+    
+      toysToDisplay =   toysToDisplay.filter(toy => (toy.price <= filterBy.maxPrice) && (toy.price >= filterBy.minPrice))
+
+}
+
+    if (by && asc) {
+      toysToDisplay.sort((toy1, toy2) => {
+        const dir = JSON.parse(sort.asc) ? 1 : -1
+        if (sort.by === 'price') return (toy1.price - toy2.price) * dir
+        if (sort.by === 'name') return toy1.name.localeCompare(toy2.name) * dir
+    })
+}
 
     return Promise.resolve(toysToDisplay)
 }

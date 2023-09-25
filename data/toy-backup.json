@@ -1,18 +1,31 @@
 [
     {
-        "id": "FPUeEI",
-        "name": "Talking Doll",
-        "price": 123,
-        "labels": "['Doll', 'Battery Powered', 'Baby']",
-        "createdAt": 1631031801011,
-        "inStock": true
+        "name": "Robot",
+        "price": 454,
+        "inStock": true,
+        "id": "4wPRv",
+        "labels": [
+            "Doll"
+          ]
     },
     {
-        "id": "FkeeEI",
+        "name": "Kali",
+        "price": 293,
+        "inStock": true,
+        "labels": [
+            "Baby",
+            "Doll"
+          ],
+        "id": "mdEOG"
+    },
+    {
         "name": "Doll",
-        "price": 200,
-        "labels": "['Doll', 'Battery Powered', 'Baby']",
-        "createdAt": 1631031921011,
-        "inStock": true
+        "price": 7888,
+        "inStock": true,
+        "labels": [
+            "On wheels",
+            "Battery Powered"
+          ],
+        "id": "4pxFh"
     }
 ]

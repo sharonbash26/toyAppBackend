@@ -26,9 +26,13 @@ app.use(express.json()) // for req.body
 app.use(express.static('public'))
 
 app.get('/api/toy', (req, res) => {
-    const { name, price, labels, createAt, inStock } = req.query
-    const filterBy = { name }
-    toyService.query(filterBy)
+    // const { name, price, labels, createAt, inStock } = req.query
+    // const filterBy = { name }
+
+    const {filterBy, sort} = req.query || {}
+    console.log("req.query:", req.query)
+
+    toyService.query(filterBy,sort)
         .then(toys => {
             res.send(toys)
         })
@@ -41,12 +45,13 @@ app.get('/api/toy', (req, res) => {
 app.post('/api/toy', (req, res) => {
     // const loggedinUser = userService.validateToken(req.cookies.loginToken)
     // if (!loggedinUser) return res.status(401).send('Cannot add toy')
-    const { name, price, inStock } = req.body
+    const { name, price, inStock,labels } = req.body
 
     const toy = {
         name,
-        price: utilService.getRandomInt(10, 1000),
-        inStock: true
+        price,
+        inStock,
+        labels
     }
     toyService.save(toy)
         .then(savedToy => {
@@ -121,4 +126,3 @@ app.listen(port, () => {
     loggerService.info(`Server listening on port http://127.0.0.1:${port}/`)
 })
 
-    
